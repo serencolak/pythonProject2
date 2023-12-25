@@ -15,9 +15,9 @@ st.markdown(html_temp, unsafe_allow_html=True)
 
 tab_1, tab_2, tab_3 = st.tabs(["Top 20", "Oyun Tavsiyesi", "Makine Öğrenmesi"]) # Deneme için koydum.
 
-df = pd.read_csv("Proje/2022-01-08.csv")
+df = pd.read_csv("2022-01-08.csv")
 
-grouped_by_id = pd.read_csv("Proje/grouped_by_id.csv")
+grouped_by_id = pd.read_csv("grouped_by_id.csv")
 
 # URL yarım geldiği için baş kısmını tamamlıyoruz. Bunu daha sonra fotoğrafların içine köprü için kullanacağız.
 df["URL-ek"] = "https://boardgamegeek.com/"
