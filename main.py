@@ -1,5 +1,8 @@
 import streamlit as st
 import pandas as pd
+import joblib
+import lightgbm
+from sklearn.preprocessing import OneHotEncoder
 
 pd.set_option('display.width', 50000)
 pd.set_option('display.max_columns', None)
@@ -7,13 +10,20 @@ pd.set_option('display.float_format', lambda x: '%.4f' % x)
 
 st.set_page_config(layout="wide")
 
+tab_1, tab_2, tab_ml = st.tabs(["Top 20", "Oyun Tavsiyesi", "Makine Öğrenmesi"]) # Deneme için koydum.
+
 html_temp = """
 <div style="background-color:tomato;padding:1.5px">
 <h1 style="color:white;text-align:center;">Top 20 Board Games ⬆⬇ </h1>
 </div><br>"""
-st.markdown(html_temp, unsafe_allow_html=True)
+tab_1.markdown(html_temp, unsafe_allow_html=True)
 
-tab_1, tab_2, tab_3 = st.tabs(["Top 20", "Oyun Tavsiyesi", "Makine Öğrenmesi"]) # Deneme için koydum.
+html_temp = """
+<div style="background-color:tomato;padding:1.5px">
+<h1 style="color:white;text-align:center;">Kutu Oyunu Seçme Aracı 🎲</h1>
+</div><br>"""
+tab_ml.markdown(html_temp, unsafe_allow_html=True)
+
 
 df = pd.read_csv("2022-01-08.csv")
 
